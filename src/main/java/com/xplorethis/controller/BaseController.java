@@ -16,10 +16,8 @@ public class BaseController {
 	private final static Logger logger = Logger.getLogger(BaseController.class);
 	
 	/** The base service. */
-	@Autowired
-	BaseService baseService = null;
+	/*@Autowired
+	BaseService baseService = null;*/
 	
-	/** The data. */
-	private StringBuffer data = null;
 
 }

@@ -88,7 +88,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>CounterWebApp</finalName>
+		<finalName>DrugStore</finalName>
 
 		<plugins>
 		    <!-- Eclipse project -->

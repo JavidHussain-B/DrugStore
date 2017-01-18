@@ -19,9 +19,9 @@
         http://www.springframework.org/schema/jee
         http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
 
-	<context:component-scan base-package="com.javid.controller" />
+	<context:component-scan base-package="com.xplorethis.controller" />
 	
-	<bean id="baseService" class="com.javid.serviceImpl.BaseServiceImpl"></bean>
+	<!-- <bean id="baseService" class="com.javid.serviceImpl.BaseServiceImpl"></bean> -->
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
