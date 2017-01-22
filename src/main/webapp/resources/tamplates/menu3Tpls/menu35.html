@@ -1,0 +1,112 @@
+<div class="panel panel-default">
+  	<div class="panel-heading">
+    	<h3 class="panel-title pull-left">MESSAGE BLACK-OUT</h3>
+    	
+    	<button type="button" class="btn btn-default btn-sm pull-right">Create</button>
+  	</div>
+  
+  	<div class="panel-body">
+  		<div class="row">
+	    	<div class="col-sm-12 col-md-12 col-lg-12">
+				<div class="search-box">
+			    	<i class="glyphicon glyphicon-search"></i>
+			    	<input type="search" ng-model="searchText" class="form-control" placeholder="Search">
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+	    	<div class="col-sm-12 col-md-12 col-lg-12">
+				<table class="table table-hover ttui-table show">
+					<thead class="main-header">
+						<tr>
+							<th tt-table-tooltip style="width: 8%;">Name</th>
+							<th tt-table-tooltip style="width: 84%;">Time Slide</th>
+							<th tt-table-tooltip style="width: 8%;">Action</th>
+						</tr>
+					</thead>
+					<!-- table main items -->
+					<tbody ng-repeat="item in data track by $index">
+						<tr ng-class="{'active':item._meta.selected}">
+							<td ng-bind="item.name" data-mobile-label="Name" style="width: 8%;"></td>
+							<td data-mobile-label="Time Slide" style="width: 84%;">
+								<div id="dragSlider">
+						   			<div ng-repeat="slot in item.timeArray" time-resize solt="slot" slotindex="$index" timearray="item.timeArray" class="contentEditorBox" style="width:{{slot.width}}; background-color:{{slot.color}}" title="slot.timeSlotName">
+						   				<span>{{slot.timeSlotName}}</span>
+						   			</div>
+						   		</div>
+							</td>
+							<td class="icons" style="width: 8%;">
+								<a class="glyphicon glyphicon-edit" ng-click="$event.stopPropagation();"></a>
+								<a class="divider" ng-if="item.items"></a>
+								<a class="glyphicon glyphicon-chevron-right" ng-class="{'rotate-right':item._meta.expanded}"  ng-click="item._meta.expanded=!item._meta.expanded;"></a>
+							</td>
+						</tr>
+								
+						<tr class="expanding-row">
+							<td colspan="3">
+								<div uib-collapse="!item._meta.expanded">
+									<div class="form-group">
+									   	<table class="table table-hover table-striped ttui-table show" ng-if="timeArray.length">
+											<thead class="main-header">
+												<tr>
+													<th>Start Time</th>
+													<th>End Time</th>
+													<th>Time Type</th>
+												</tr>
+											</thead> 
+											<tbody>
+												<tr ng-repeat="slot in timeArray">		
+													<td>{{slot.startTime|gtime|date:'HH:mm:ss'}}</td>	
+													<td>{{slot.endTime|gtime|date:'HH:mm:ss'}}</td>
+													<td>{{slot.timeSlotName}}</td>
+												</tr>
+											</tbody>
+											<tfoot>
+													<tr><td colspan="8">&nbsp;</td></tr>
+											</tfoot>
+										</table>
+									</div>
+   	
+	   								<form class="form-horizontal-ttui">
+								    	<div class="col-md-4">
+								      		<div class="form-group">
+								      			<label class="control-label">Slide Color :</label>
+								      			
+								      			<span class="control-content">
+								      				<select class="form-control slab-input" ng-model="addSlot.color" ng-options="color for color in timeSlotColors" ng-change="validateformvalues('addSlotColor',addSlot.color,'select')">
+								      					<option value= "">--SELECT COLOR--</option>
+								      				</select>
+								      				<span class="error inputAlertMsg">{{paramvalue.addSlotColor}}</span>
+												</span>
+								      		</div>
+								      	</div>
+		      	
+								      	<div class="col-md-4">
+								      		<div class="form-group">
+								      			<label class="control-label">Time Type :</label>
+								      			
+								      			<span class="control-content">
+								      				<select class="form-control slab-input" ng-model="addSlot.timeType" ng-options="timeType for timeType in timeSlotTypes" ng-change="validateformvalues('addSlotTimeType',addSlot.timeType,'select')">
+								      					<option value= "">--SELECT TYPE--</option>
+								      				</select>
+								      				<span class="error inputAlertMsg">{{paramvalue.addSlotTimeType}}</span>
+												</span>
+								      		</div>
+								      	</div>
+								      	
+								      	<div class="col-md-4">
+								      		<div class="form-group">
+												<button class="btn btn-success" ng-click="addNewTimeSlot(addSlot.timeType,addSlot.color,item)">ADD NEW SLIDE</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+  	</div>
+</div>

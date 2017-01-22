@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+body {
+	cursor: default;
+	-webkit-font-smoothing: antialiased;
+	opacity: 1;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+/*****************************************************
+	Login Page CSS
+******************************************************/
+
+#index {
+	font-size: 12px;
+	background: #333 url("../images/WAVE_pattern.png");
+	font-size: 12px;
+}
+#index .TitleHeading { 
+	color: #fff;
+    background: transparent;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    margin: 25px 0px; 
+}
+#index .TitleHeading h1 { margin: 0px; }
+#index form { width: 60%; margin: auto; text-align: center; }
+input:required {
+    background-color: #80d4fa;
+}
+#index .form-control {
+	height: 50px;
+	font-size: 12px;
+	border: 1px solid #47c2f2;
+	border-radius: 8px; box-shadow: none;
+}
+#index .form-control:focus {
+	color: #05405E;
+	background-color: #fff;
+	border: 1px solid #8CDEF8;
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 15px 1px #8CDEF8;
+			box-shadow: inset 0 0 15px 1px #8CDEF8;
+}
+#index .btn { padding: 6px 40px; color: #05405E; background-color: #fff; }
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus { outline: inherit; }
+a { cursor: pointer; color: #fff; }
+a:hover, a:focus { text-decoration: none; }
+
+

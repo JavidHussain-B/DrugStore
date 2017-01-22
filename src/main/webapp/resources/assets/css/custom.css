@@ -1,0 +1,25 @@
+/* .ttui-navigation.navbar.navbar-default.subMenuStyle .container-fluid { padding-left: 20px; padding-right: 20px; }
+.ttui-navigation.navbar.navbar-default.subMenuStyle li>a { padding-left: 10px; padding-right: 10px; font-size: 13px; }
+.ttui-navigation.navbar.navbar-default.subMenuStyle span.selection-bar-slide { left: 5px; } */
+
+.sideMenuTab { width: 20%; float: left; padding-right: 5px; }
+.sideMenuTabContent { width: 80%; float: left; }
+.panel { border-radius: 0px; box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2); }
+.panel .panel-heading { display: list-item; padding: 10px 15px; }
+.panel .panel-heading h3.panel-title { font-size: 14px; }
+.panel .panel-heading button { margin-top: -5px; }
+.panel .panel-body { padding: 10px 15px; }
+
+.search-box { position: relative; padding-bottom: 5px; font-size: 11px; display: inline-block; }
+.search-box input { padding-right: 30px; }
+.search-box i { position: absolute; right: 0px; padding: 10px 12px; pointer-events: none; }
+
+.app-modal-window-lg .modal-dialog { width: 900px; }
+.app-modal-window-md .modal-dialog { width: 750px; }
+.app-modal-window-sm .modal-dialog { width: 500px; }
+
+#dragSlider { width: 100%; height: 30px; overflow: hidden; background: #e6e6e6; border-width: 0px 0px 0px 5px; border-style: solid; border-color: #882345; }
+.deleteDivClass { display: none; }
+.contentEditorBox { background-color: #9e516b; max-width: 100% !important; min-width: 2px; height: 30px; top: 0px !important;position: relative;
+  float: left; color: #fff; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 4px 0px; }
+.e-resize { position: absolute; width: 5px; background: #882345; left: calc(100% - 5px); height: 30px; cursor: w-resize; top: 0;}
