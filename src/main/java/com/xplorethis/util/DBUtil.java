@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
@@ -26,7 +27,7 @@ public class DBUtil {
 	 * @param ps
 	 *            the ps
 	 */
-	public static void closeConnection(Connection con, ResultSet rs, PreparedStatement ps) {
+	public static void closeConnection(Connection con, ResultSet rs, PreparedStatement ps, Statement st) {
 		if (rs != null) {
 			try {
 				rs.close();
@@ -45,6 +46,14 @@ public class DBUtil {
 			try {
 				con.close();
 				con = null;
+			} catch (SQLException e) {
+				logger.error("Error occured while closing the connection. Error Message::" + e.getMessage());
+			}
+		}
+		if (st != null) {
+			try {
+				st.close();
+				st = null;
 			} catch (SQLException e) {
 				logger.error("Error occured while closing the connection. Error Message::" + e.getMessage());
 			}
