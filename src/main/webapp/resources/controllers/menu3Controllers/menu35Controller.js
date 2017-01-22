@@ -1,4 +1,4 @@
-LCMSApp.controller('menu35Controller', function($scope,$http,$rootScope,$uibModal) {
+drugApp.controller('menu35Controller', function($scope,$http,$rootScope,$uibModal) {
 	
 	
 	
@@ -108,7 +108,7 @@ LCMSApp.controller('menu35Controller', function($scope,$http,$rootScope,$uibModa
 
 });
 
-LCMSApp.filter('gtime', function() {
+drugApp.filter('gtime', function() {
     return function(t) {
     	var start = new Date();
     	start.setHours(0,0,0,0);
@@ -120,7 +120,7 @@ LCMSApp.filter('gtime', function() {
 
 
 //To manage the resize
-LCMSApp.directive("timeResize", function($document,$timeout) {
+drugApp.directive("timeResize", function($document,$timeout) {
 	return {
 		scope:{
 			solt:"=",

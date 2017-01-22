@@ -1,4 +1,4 @@
-LCMSApp.controller('menu12Controller', function($scope, $http) {
+drugApp.controller('menu12Controller', function($scope, $http) {
 	
 	
 

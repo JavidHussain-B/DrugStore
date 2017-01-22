@@ -1,4 +1,4 @@
-LCMSApp.factory('ValidationFactory', ['$scope', function($scope){
+drugApp.factory('ValidationFactory', ['$scope', function($scope){
 	var ValidationFactory={};
 	ValidationFactory.validateformvalues = function(Parameter, modalvalue, minlength, maxlength, patternvalue) {
         $scope.error = '';

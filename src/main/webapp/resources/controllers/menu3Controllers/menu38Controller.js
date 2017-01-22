@@ -1,4 +1,4 @@
-LCMSApp.controller('menu38Controller', function($scope, $http, $rootScope) {
+drugApp.controller('menu38Controller', function($scope, $http, $rootScope) {
  
     $scope.mywords ="Menus Contents";
 

@@ -1,8 +1,8 @@
 'use strict';
 
-var LCMSApp = angular.module('LCMSApp', ['ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate','TT-UI.Navigation','TT-UI.Table']);
+var drugApp = angular.module('drugApp', ['ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate','TT-UI.Navigation','TT-UI.Table']);
 
-LCMSApp.controller('MainController', ['$scope','$rootScope','$http','$state', function($scope,$rootScope,$http,$state) {
+drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', function($scope,$rootScope,$http,$state) {
 
 	// fake user stuff
 	$scope.userAuthorized = true;
@@ -21,7 +21,7 @@ LCMSApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 
 
 
-LCMSApp.config(['$stateProvider', 'navigationProvider', function($stateProvider, navigationProvider) {
+drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider, navigationProvider) {
 	$stateProvider.state('home', {
 		url: 'home',
 		onEnter: ['$rootScope', function($rootScope) {

@@ -1,4 +1,4 @@
-LCMSApp.controller('menu31Controller', function($scope, $http, $rootScope) {
+drugApp.controller('menu31Controller', function($scope, $http, $rootScope) {
  
 	$scope.data = [{
 	   				code: 234123,
