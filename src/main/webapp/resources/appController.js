@@ -1,27 +1,20 @@
 'use strict';
 
-var drugApp = angular.module('drugApp', ['ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate','TT-UI.Navigation','TT-UI.Table']);
+var drugApp = angular.module('drugApp', ['ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate']);
 
 drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', function($scope,$rootScope,$http,$state) {
 
 	// fake user stuff
 	$scope.userAuthorized = true;
-	
-	$scope.User = {
-		getUserName: function () {
-			return 'Admin';
-		},
-		getUserPhoto: function () {
-			return 'images/avatar.png';
-		}
-	};
 
-	
+	$scope.toggleClick = function() {
+		$scope.toggleVrbl = !$scope.toggleVrbl;
+	}
 }]);
 
 
 
-drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider, navigationProvider) {
+/*drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider, navigationProvider) {
 	$stateProvider.state('home', {
 		url: 'home',
 		onEnter: ['$rootScope', function($rootScope) {
@@ -30,27 +23,7 @@ drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider,
 			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = undefined;
 		}]
 	})
-	// --- settings / configuration
-	.state('settings', {
-		url: '/settings/',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = 'settings';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = undefined;
-		}]
-	})
-	.state('configuration', {
-		url: 'configuration',
-		parent: 'settings',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'configuration';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = undefined;
-		}]
-	})
-
+	
 //--------------1st Main Menu-----------------//
 	.state('P1', {
 		url: '/offering/',
@@ -357,3 +330,4 @@ drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider,
 
 
 
+*/

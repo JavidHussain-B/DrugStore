@@ -8,51 +8,53 @@
     
     <title>DrugStore</title>
 	<link rel="icon" type="image/png" href="resources/assets/images/favicon.ico">
-	
+        
 <!--*********** CSS Styles ***************-->
 	<link href="resources/assets/css/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="resources/assets/css/custom.css" rel="stylesheet">
     <link href="resources/assets/css/responsive.css" rel="stylesheet">
-    
- <!--*********** CSS Styles ***************-->
+ <!--*********** CSS Styles ***************-->	
+				
 </head>
 
 <body data-ng-controller="MainController">
-    <div class="page-wrapper">
-		<header>
-		</header>
-		
-	
-		<div class="container-main" style="padding: 10px 20px;">
-			<div class="row">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<ui-view name="main"></ui-view>
+    <div class="container-fluid">
+	    <div class="row">
+			<header>
+				<div class="header-logo">
+					<a ng-click="toggleClick()"><img class="img-responsive" src="resources/assets/images/wbs-logo.png" /></a>
 				</div>
-			</div>
+				
+				<div class="header-content">
+					main content
+				<!-- 	<ui-view name="main"></ui-view> -->
+				</div>
+			</header>
+			
+		
+			<section>
+				<div class="left-menu-bar" ng-class="{'left-menu-bar-thin' : toggleVrbl}">
+					<ul>
+						<li>Menu</li>
+						<li>Menu</li>
+						<li>Menu</li>
+						<li>Menu</li>
+					</ul>
+				</div>
+				
+				<div class="main-content" ng-class="{'main-content-full' : toggleVrbl}">
+					main content
+				<!-- 	<ui-view name="main"></ui-view> -->
+				</div>
+			</section>
+			
+			<footer>
+				Footer Part
+			</footer>
 		</div>
 	</div>
-
-	<footer>
-		<nav class="navbar navbar-default navbar-fixed-bottom nav-footer">
-		    <div class="nav-footer-left">
-		        <img src="resources/assets/images/favicon.ico" height="45" />
-		    </div>
-		    <div class="nav-footer-middle">
-		        <span class="hidden-xs">
-		            <span translate="Application name">Application name</span>
-		            <span>0.0.0</span>
-		        </span>
-		        <span class="visible-xs">
-		            <span translate="App">App</span>
-		            <span>0.0.0</span>
-		        </span>
-		    </div>
-		    <div class="nav-footer-right">
-		        <span><i><small>Powered by </small></i>&nbsp<b>TECNOTREE</b></span>
-		    </div>
-		</nav>
-	</footer>
 </body>
 
 <!--*********** JavaScript Libraries ***************-->
@@ -64,7 +66,7 @@
 	<script src="resources/assets/js/angularjs/angular-translate.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/angularjs/angular-resource.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/angularjs/ui-bootstrap.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- <script src="resources/assets/js/bootstrap.min.js" type="text/javascript"></script> -->
 <!--*********** JavaScript Libraries ***************-->
 
 <!--*********** Controllers ***************-->	
