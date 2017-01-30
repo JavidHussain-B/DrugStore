@@ -9,11 +9,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.xplorethis.exception.ApplicationServiceException;
 import com.xplorethis.service.LoginService;
 import com.xplorethis.util.ApplicationUtil;
 import com.xplorethis.vo.LoginVO;
-import com.xplorethis.vo.UserMenuAccessVO;
+import com.xplorethis.vo.MenuVO;
 import com.xplorethis.vo.UserVO;
 
 
@@ -54,16 +56,28 @@ public class LoginController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/getMenus", method = RequestMethod.POST)
-	public UserMenuAccessVO getMenus(@RequestBody LoginVO loginVO, HttpServletRequest request) {
-		UserMenuAccessVO vo = null;
+	@RequestMapping(value = "/getMenus", method = RequestMethod.GET)
+	public @ResponseBody MenuVO getMenus(HttpServletRequest request) {
+		MenuVO vo = null;
 		try {
 			UserVO uVO = (UserVO) request.getSession().getAttribute("LOGGEDIN_USER");
-			vo = loginService.getMenus(loginVO.getUserName(), uVO.getGroupId());
-		} catch(Exception e) {
+			vo = loginService.getMenus(uVO.getGroupId());
+		} catch(ApplicationServiceException e) {
 			logger.error("Error occured while getting Menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		}
 		return vo;
 	}
-
+	
+	@RequestMapping(value = "/getSubMenus", method = RequestMethod.GET)
+	public @ResponseBody MenuVO getSubMenus(HttpServletRequest request) {
+		MenuVO vo = null;
+		try {
+			UserVO uVO = (UserVO) request.getSession().getAttribute("LOGGEDIN_USER");
+			vo = loginService.getSubMenus(uVO.getGroupId(), Integer.parseInt(request.getParameter("parentId")));
+		} catch(ApplicationServiceException e) {
+			logger.error("Error occured while getting sub Menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
+		}
+		return vo;
+	}
+	
 }

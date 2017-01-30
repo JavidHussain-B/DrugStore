@@ -36,6 +36,12 @@
 		<!-- <property name="dataSource" ref="dataSource" /> -->
 	</bean>
 	
+	<bean id="adminService" class="com.xplorethis.serviceImpl.AdminServiceImpl"></bean>
+	<bean id="adminDAO" class="com.xplorethis.daoImpl.AdminDAOImpl"></bean>
+	
+	<bean id="appService" class="com.xplorethis.serviceImpl.ApplicationServiceImpl"></bean>
+	<bean id="appDAO" class="com.xplorethis.daoImpl.ApplicationDAOImpl"></bean>
+	
 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="sun.jdbc.odbc.JdbcOdbcDriver" />
 		<property name="url" value="jdbc:odbc:drugStoreDSN" />
@@ -45,7 +51,7 @@
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/WEB-INF/pages/</value>
+			<value>/WEB-INF/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>

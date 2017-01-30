@@ -72,11 +72,11 @@
 <!--*********** Controllers ***************-->	
 	<script src="resources/appController.js"></script>
 	
-	<script src="resources/controllers/menu1Controllers/menu11Controller.js"></script>
+	<!-- <script src="resources/controllers/menu1Controllers/menu11Controller.js"></script>
 	<script src="resources/controllers/menu1Controllers/menu11ModalController.js"></script>
 	<script src="resources/controllers/menu1Controllers/menu12Controller.js"></script>
 	<script src="resources/controllers/menu1Controllers/menu13Controller.js"></script>
-	<script src="resources/controllers/menu1Controllers/menu14Controller.js"></script>
+	<script src="resources/controllers/menu1Controllers/menu14Controller.js"></script> -->
 	
 	<script src="resources/controllers/menu2Controllers/menu21Controller.js"></script>
 	<script src="resources/controllers/menu2Controllers/menu22Controller.js"></script>

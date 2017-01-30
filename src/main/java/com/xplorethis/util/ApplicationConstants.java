@@ -21,6 +21,8 @@ public class ApplicationConstants {
 	/** The Constant FAILURE. */
 	public static final String FAILURE = "ERROR";
 	
+	public static final String STR_REF = "#REF";
+	
 	/** The Constant REC_FETCH_SIZE. */
 	public static final int REC_FETCH_SIZE = 500;
 
