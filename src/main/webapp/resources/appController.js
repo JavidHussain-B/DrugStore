@@ -4,8 +4,16 @@ var drugApp = angular.module('drugApp', ['ui.router','ui.bootstrap','ui.bootstra
 
 drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', function($scope,$rootScope,$http,$state) {
 
-	// fake user stuff
-	$scope.userAuthorized = true;
+	 $http.get("./getMenus").success(function(data) {
+		 console.log("main---" + JSON.stringify(data));
+	 });
+	 
+	 $scope.getSubMenus = function() {
+		 var subMenuUrl = './getSubMenus?parentId=' + $scope.Parent_Menu_Id;
+		 $http.get(subMenuUrl).success(function(data) {
+			 console.log("submain---" + JSON.stringify(data));
+		 });
+	 }
 
 	$scope.toggleClick = function() {
 		$scope.toggleVrbl = !$scope.toggleVrbl;

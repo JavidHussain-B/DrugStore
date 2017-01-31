@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -48,57 +50,63 @@ public class LoginDAOImpl implements LoginDAO {
 		return user;
 	}
 	
-	public MenuEntity getMenus(int groupId) throws ApplicationDBException {
+	public List<MenuEntity> getMenus(int groupId) throws ApplicationDBException {
 		MenuEntity menu = null;
 		Connection conn = null;
 		ResultSet rs = null;
 		Statement st = null;
 		PreparedStatement ps = null;
+		List<MenuEntity> list = null;
 		try {
 			conn = DBUtil.getJdbcOdbcConnection(null, null);
 			ps = conn.prepareStatement("select m.MENU_ID, m.DESCRIPTION, m.PARENT_SCREEN_ID, m.SEQUENCE_NO from DS_USER_MENU_ACCESS u, DS_MENU m where u.MENU_ID = m.MENU_ID AND m.PARENT_SCREEN_ID = 0 AND u.GROUP_ID = ? ORDER BY m.SEQUENCE_NO");
 			ps.setInt(1, groupId);
 			rs = ps.executeQuery();
+			list = new ArrayList<>();
 			while(rs.next()) {
 				menu = new MenuEntity();
 				menu.setMenuId(rs.getInt("MENU_ID"));
 				menu.setDescription(rs.getString("DESCRIPTION"));
 				menu.setParentScreenInt(rs.getInt("PARENT_SCREEN_ID"));
 				menu.setSequenceNo(rs.getInt("SEQUENCE_NO"));
+				list.add(menu);
 			}
 		} catch(Exception e) {
 			logger.error("Error occured while getMenus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		} finally {
 			DBUtil.closeConnection(conn, rs, ps, st);
 		}
-		return menu;
+		return list;
 	}
 	
-	public MenuEntity getSubMenus(int groupId, int parentId) throws ApplicationDBException {
+	public List<MenuEntity> getSubMenus(int groupId, int parentId) throws ApplicationDBException {
 		MenuEntity menu = null;
 		Connection conn = null;
 		ResultSet rs = null;
 		Statement st = null;
 		PreparedStatement ps = null;
+		List<MenuEntity> list = null;
 		try {
 			conn = DBUtil.getJdbcOdbcConnection(null, null);
 			ps = conn.prepareStatement("select m.MENU_ID, m.DESCRIPTION, m.PARENT_SCREEN_ID, m.SEQUENCE_NO from DS_USER_MENU_ACCESS u, DS_MENU m where u.MENU_ID = m.MENU_ID AND m.PARENT_SCREEN_ID = ? AND u.GROUP_ID = ? ORDER BY m.SEQUENCE_NO");
 			ps.setInt(1, parentId);
 			ps.setInt(2, groupId);
 			rs = ps.executeQuery();
+			list = new ArrayList<>();
 			while(rs.next()) {
 				menu = new MenuEntity();
 				menu.setMenuId(rs.getInt("MENU_ID"));
 				menu.setDescription(rs.getString("DESCRIPTION"));
 				menu.setParentScreenInt(rs.getInt("PARENT_SCREEN_ID"));
 				menu.setSequenceNo(rs.getInt("SEQUENCE_NO"));
+				list.add(menu);
 			}
 		} catch(Exception e) {
 			logger.error("Error occured while getSubMenus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		} finally {
 			DBUtil.closeConnection(conn, rs, ps, st);
 		}
-		return menu;
+		return list;
 	}
 	
 }

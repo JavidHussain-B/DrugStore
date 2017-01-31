@@ -1,5 +1,7 @@
 package com.xplorethis.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -70,27 +72,27 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/getMenus", method = RequestMethod.GET)
-	public @ResponseBody MenuVO getMenus(HttpServletRequest request) {
-		MenuVO vo = null;
+	public @ResponseBody List<MenuVO> getMenus(HttpServletRequest request) {
+		List<MenuVO> menuList = null;
 		try {
 			UserVO uVO = (UserVO) request.getSession().getAttribute("LOGGEDIN_USER");
-			vo = loginService.getMenus(uVO.getGroupId());
+			menuList = loginService.getMenus(uVO.getGroupId());
 		} catch(ApplicationServiceException e) {
 			logger.error("Error occured while getting Menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		}
-		return vo;
+		return menuList;
 	}
 	
 	@RequestMapping(value = "/getSubMenus", method = RequestMethod.GET)
-	public @ResponseBody MenuVO getSubMenus(HttpServletRequest request) {
-		MenuVO vo = null;
+	public @ResponseBody List<MenuVO> getSubMenus(HttpServletRequest request) {
+		List<MenuVO> menuList = null;
 		try {
 			UserVO uVO = (UserVO) request.getSession().getAttribute("LOGGEDIN_USER");
-			vo = loginService.getSubMenus(uVO.getGroupId(), Integer.parseInt(request.getParameter("parentId")));
+			menuList = loginService.getSubMenus(uVO.getGroupId(), Integer.parseInt(request.getParameter("parentId")));
 		} catch(ApplicationServiceException e) {
 			logger.error("Error occured while getting sub Menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		}
-		return vo;
+		return menuList;
 	}
 	
 }

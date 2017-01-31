@@ -1,5 +1,8 @@
 package com.xplorethis.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,38 +44,48 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public MenuVO getMenus(int groupId) throws ApplicationServiceException {
-		MenuVO vo = null;
+	public List<MenuVO> getMenus(int groupId) throws ApplicationServiceException {
+		List<MenuVO> list = null;
 		try {
-			MenuEntity menu = loginDAO.getMenus(groupId);
-			if(menu != null) {
-				vo = new MenuVO();
-				vo.setMenuId(menu.getMenuId());
-				vo.setDescription(menu.getDescription());
-				vo.setParentScreenInt(menu.getParentScreenInt());
-				vo.setSequenceNo(menu.getSequenceNo());
+			List<MenuEntity> menusList = loginDAO.getMenus(groupId);
+			if(menusList != null && !menusList.isEmpty()) {
+				list = new ArrayList<>();
+				MenuVO vo = null;
+				for(MenuEntity menu : menusList) {
+					vo = new MenuVO();
+					vo.setMenuId(menu.getMenuId());
+					vo.setDescription(menu.getDescription());
+					vo.setParentScreenInt(menu.getParentScreenInt());
+					vo.setSequenceNo(menu.getSequenceNo());
+					list.add(vo);
+				}
 			}
 		} catch(ApplicationDBException e) {
 			logger.error("Error occured while getting menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		}
-		return vo;
+		return list;
 	}
 	
-	public MenuVO getSubMenus(int groupId, int parentId) throws ApplicationServiceException {
-		MenuVO vo = null;
+	public List<MenuVO> getSubMenus(int groupId, int parentId) throws ApplicationServiceException {
+		List<MenuVO> list = null;
 		try {
-			MenuEntity menu = loginDAO.getSubMenus(groupId, parentId);
-			if(menu != null) {
-				vo = new MenuVO();
-				vo.setMenuId(menu.getMenuId());
-				vo.setDescription(menu.getDescription());
-				vo.setParentScreenInt(menu.getParentScreenInt());
-				vo.setSequenceNo(menu.getSequenceNo());
+			List<MenuEntity> menusList = loginDAO.getSubMenus(groupId, parentId);
+			if(menusList != null && !menusList.isEmpty()) {
+				list = new ArrayList<>();
+				MenuVO vo = null;
+				for(MenuEntity menu : menusList) {
+					vo = new MenuVO();
+					vo.setMenuId(menu.getMenuId());
+					vo.setDescription(menu.getDescription());
+					vo.setParentScreenInt(menu.getParentScreenInt());
+					vo.setSequenceNo(menu.getSequenceNo());
+					list.add(vo);
+				}
 			}
 		} catch(ApplicationDBException e) {
-			logger.error("Error occured while getting sub menus ::: " + ApplicationUtil.getExceptionStackTrace(e));
+			logger.error("Error occured while getting submenus ::: " + ApplicationUtil.getExceptionStackTrace(e));
 		}
-		return vo;
+		return list;
 	}
 	
 }
