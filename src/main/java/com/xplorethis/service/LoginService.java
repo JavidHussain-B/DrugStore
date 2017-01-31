@@ -1,12 +1,15 @@
 package com.xplorethis.service;
 
-import com.xplorethis.vo.UserMenuAccessVO;
+import com.xplorethis.exception.ApplicationServiceException;
+import com.xplorethis.vo.MenuVO;
 import com.xplorethis.vo.UserVO;
 
 public interface LoginService {
 
 	UserVO authenticateUser(String userName, String password);
 
-	UserMenuAccessVO getMenus(String userName, int groupId);
+	MenuVO getMenus(int groupId) throws ApplicationServiceException;
+
+	MenuVO getSubMenus(int groupId, int parseInt) throws ApplicationServiceException;
 
 }

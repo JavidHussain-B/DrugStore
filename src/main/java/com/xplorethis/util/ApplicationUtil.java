@@ -2,6 +2,8 @@ package com.xplorethis.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * The Class ApplicationUtil.
@@ -61,5 +63,16 @@ public class ApplicationUtil {
 		String[] errorMsg = e.getMessage().split("\\r?\\n");
 		return errorMsg[0];
 	}
+	
+	/**
+	 * Gets the current time stamp.
+	 *
+	 * @return the current time stamp
+	 */
+	public static Timestamp getCurrentTimeStamp() {
+		Date today = new Date();
+		return new Timestamp(today.getTime());
+	}
+
 
 }

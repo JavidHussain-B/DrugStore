@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" data-ng-app="drugApp">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>DrugStore</title>
@@ -95,13 +96,11 @@
 	<script src="resources/controllers/dashboardController/dashboardController.js"></script>
 	<script src="resources/controllers/storeControllers/addDrugController.js"></script>
 	<script src="resources/controllers/storeControllers/menu11ModalController.js"></script>
-	<script src="resources/controllers/storeControllers/modifyDrugController.js"></script>
-	
+	<script src="resources/controllers/storeControllers/modifyDrugController.js"></script>	
 	<script src="resources/controllers/menu2Controllers/menu21Controller.js"></script>
 	<script src="resources/controllers/menu2Controllers/menu22Controller.js"></script>
 	<script src="resources/controllers/menu2Controllers/menu23Controller.js"></script>
 	<script src="resources/controllers/menu2Controllers/menu24Controller.js"></script>
-	<script src="resources/factories/ValidationFactory.js"></script>
 	<script src="resources/controllers/menu3Controllers/menu3Controller.js"></script>
 	<script src="resources/controllers/menu3Controllers/menu31Controller.js"></script>
 	<script src="resources/controllers/menu3Controllers/menu32Controller.js"></script>
