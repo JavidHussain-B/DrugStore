@@ -14,166 +14,53 @@ drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 
 
 
-/*drugApp.config(['$stateProvider', 'navigationProvider', function($stateProvider, navigationProvider) {
-	$stateProvider.state('home', {
-		url: 'home',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = 'home';
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = undefined;
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = undefined;
-		}]
+drugApp.config(function($stateProvider, $urlRouterProvider) {
+
+//--------------Dashboard Menu-----------------//
+	$stateProvider.state('P1', {
+		url : "/Dashboard",
+		views: {
+			'main@': {
+				controller: 'dashboardController',
+				templateUrl: 'resources/tamplates/dashboard/dashboard.html'
+			}
+		}
 	})
 	
-//--------------1st Main Menu-----------------//
-	.state('P1', {
-		url: '/offering/',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = 'P1';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = undefined;
-		}],
-		views: {
-			'main@': {
-				controller: 'menu11Controller',
-				templateUrl: 'resources/tamplates/menu1Tpls/menu11.html'
-			}
-		}
-	})
-	.state('P11', {
-		parent: 'P1',
-		url: 'P11',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P11';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = undefined;
-		}],
-		views: {
-			'main@': {
-				controller: 'menu11Controller',
-				templateUrl: 'resources/tamplates/menu1Tpls/menu11.html'
-			}
-		}
-	})
-	.state('P12', {
-		parent: 'P1',
-		url: 'P12',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P12';
-		}],
-		views: {
-			'main@': {
-				controller: 'menu12Controller',
-				templateUrl: 'resources/tamplates/menu1Tpls/menu12.html'
-			}
-		}
-	})
-	.state('P13', {
-		parent: 'P1',
-		url: 'P13',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P13';
-		}],
-		views: {
-			'main@': {
-				controller: 'menu13Controller',
-				templateUrl: 'resources/tamplates/menu1Tpls/menu13.html'
-			}
-		}
-	})
-	.state('P14', {
-		parent: 'P1',
-		url: 'P14',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P14';
-		}],
-		views: {
-			'main@': {
-				controller: 'menu14Controller',
-				templateUrl: 'resources/tamplates/menu1Tpls/menu14.html' 
-			}
-		}
-	})
-
-//--------------2nd Main Menu-----------------//
+//--------------Store Menu-----------------//
 	.state('P2', {
-		url: '/resource/',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = 'P2';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = undefined;
-		}],
+		url: '/Store/',
 		views: {
 			'main@': {
-				controller: 'menu21Controller',
-				templateUrl: 'resources/tamplates/menu2Tpls/menu21.html'
+				controller: 'addDrugController',
+				templateUrl: 'resources/tamplates/storeTpls/addDrug.html'
 			}
 		}
 	})
 	.state('P21', {
 		parent: 'P2',
-		url: 'P21',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P21';
-		}],
+		url: 'AddDrug',
 		views: {
 			'main@': {
-				controller: 'menu21Controller',
-				templateUrl: 'resources/tamplates/menu2Tpls/menu21.html'
+				controller: 'addDrugController',
+				templateUrl: 'resources/tamplates/storeTpls/addDrug.html'
 			}
 		}
 	})
 	.state('P22', {
 		parent: 'P2',
-		url: 'P22',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P22';
-		}],
+		url: 'ModifyDrug',
 		views: {
 			'main@': {
-				controller: 'menu22Controller',
-				templateUrl: 'resources/tamplates/menu2Tpls/menu22.html'
+				controller: 'modifyDrugController',
+				templateUrl: 'resources/tamplates/storeTpls/modifyDrug.html'
 			}
 		}
 	})
-	.state('P23', {
-		parent: 'P2',
-		url: 'P23',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P23';
-		}],
-		views: {
-			'main@': {
-				controller: 'menu23Controller',
-				templateUrl: 'resources/tamplates/menu2Tpls/menu23.html'
-			}
-		}
-	})
-	.state('P24', {
-		parent: 'P2',
-		url: 'P24',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P24';
-		}],
-		views: {
-			'main@': {
-				controller: 'menu24Controller',
-				templateUrl: 'resources/tamplates/menu2Tpls/menu24.html'
-			}
-		}
-	})
-	
+
 //--------------3rd Main Menu-----------------//
 	.state('P3', {
 		url: '/commercial/',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = 'P3';
-		}],
-		onExit: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateMenu = $rootScope.navigate.activeMenu = undefined;
-		}],
 		views: {
 			'main@': {
 				controller: 'menu3Controller',
@@ -184,9 +71,6 @@ drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 	.state('P31', {
 		parent: 'P3',
 		url: 'P31',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P31';
-		}],
 		views: {
 			'masters@P3': {
 				controller: 'menu31Controller',
@@ -197,9 +81,6 @@ drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 	.state('P32', {
 		parent: 'P3',
 		url: 'P32',
-		onEnter: ['$rootScope', function($rootScope) {
-			$rootScope.navigate.activeStateSubMenu = $rootScope.navigate.activeSubMenu = 'P32';
-		}],
 		views: {
 			'masters@P3': {
 				controller: 'menu32Controller',
@@ -326,8 +207,7 @@ drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 	});
 
 
-}]);
+});
 
 
 
-*/

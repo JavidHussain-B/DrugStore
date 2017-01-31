@@ -11,9 +11,11 @@
         
 <!--*********** CSS Styles ***************-->
 	<link href="resources/assets/css/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel='stylesheet' type='text/css'>
 	<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="resources/assets/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="resources/assets/css/custom.css" rel="stylesheet">
+	<link href="resources/assets/css/custom.css" rel="stylesheet">
+    <link href="resources/assets/css/accordionCss.css" rel="stylesheet">
     <link href="resources/assets/css/responsive.css" rel="stylesheet">
  <!--*********** CSS Styles ***************-->	
 				
@@ -24,29 +26,46 @@
 	    <div class="row">
 			<header>
 				<div class="header-logo">
-					<a ng-click="toggleClick()"><img class="img-responsive" src="resources/assets/images/wbs-logo.png" /></a>
+					<a ng-click="toggleClick()"><img class="img-responsive" src="resources/assets/images/logo-drugstore.png" /></a>
 				</div>
 				
-				<div class="header-content">
-					main content
-				<!-- 	<ui-view name="main"></ui-view> -->
-				</div>
+				<div class="header-content"></div>
 			</header>
 			
 		
 			<section>
 				<div class="left-menu-bar" ng-class="{'left-menu-bar-thin' : toggleVrbl}">
-					<ul>
-						<li>Menu</li>
-						<li>Menu</li>
-						<li>Menu</li>
-						<li>Menu</li>
-					</ul>
+  					<nav>
+    					<div id="menu" class="menu">
+      						<div class="menu-header">
+								<span>
+									<img class="img-responsive img-circle" src="resources/assets/images/user-logo.png" />
+								</span>
+							</div>
+      						<ul>
+        						<li class="active"><a ui-sref="P1"><i class="fa fa-tachometer"></i>Dashboard</a></li>
+        						<li><a ui-sref="P2"><i class="fa fa-cubes"></i>Store</a>
+          							<ul class="submenu">
+            							<li><a ui-sref="P21"><i class="fa fa-cart-plus"></i>Add Drug</a></li>
+            							<li><a ui-sref="P22"><i class="fa fa-gear"></i>Modify Drug</a></li>
+          							</ul>
+						        </li>
+	        					<li><a href="#"><i class="fa fa-folder-open"></i>View Orders</a></li>
+	        					<li><a href="#"><i class="fa fa-cc-visa"></i>Transactions</a>
+	          						<ul class="submenu">
+	            						<li><a href="#"><i class="fa fa-pie-chart"></i>My Order status</a></li>
+	          						</ul>
+	        					</li>
+	        					<li><a href="#"><i class="fa fa-medkit"></i>Purchase Medicines</a></li>
+	        					<li><a href="#"><i class="fa fa-user-secret"></i>Administration</a></li>
+	      					</ul>
+      						<!-- <div class="menu-footer"> @ Test</div> -->
+    					</div>
+  					</nav>
 				</div>
 				
 				<div class="main-content" ng-class="{'main-content-full' : toggleVrbl}">
-					main content
-				<!-- 	<ui-view name="main"></ui-view> -->
+					<ui-view name="main"></ui-view>
 				</div>
 			</section>
 			
@@ -59,6 +78,7 @@
 
 <!--*********** JavaScript Libraries ***************-->
     <script src="resources/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="resources/assets/js/accordionScript.js" type="text/javascript"></script>
     <script src="resources/assets/js/angularjs/angular.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/angularjs/angular-ui-router.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/angularjs/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
@@ -72,11 +92,10 @@
 <!--*********** Controllers ***************-->	
 	<script src="resources/appController.js"></script>
 	
-	<script src="resources/controllers/menu1Controllers/menu11Controller.js"></script>
-	<script src="resources/controllers/menu1Controllers/menu11ModalController.js"></script>
-	<script src="resources/controllers/menu1Controllers/menu12Controller.js"></script>
-	<script src="resources/controllers/menu1Controllers/menu13Controller.js"></script>
-	<script src="resources/controllers/menu1Controllers/menu14Controller.js"></script>
+	<script src="resources/controllers/dashboardController/dashboardController.js"></script>
+	<script src="resources/controllers/storeControllers/addDrugController.js"></script>
+	<script src="resources/controllers/storeControllers/menu11ModalController.js"></script>
+	<script src="resources/controllers/storeControllers/modifyDrugController.js"></script>
 	
 	<script src="resources/controllers/menu2Controllers/menu21Controller.js"></script>
 	<script src="resources/controllers/menu2Controllers/menu22Controller.js"></script>
