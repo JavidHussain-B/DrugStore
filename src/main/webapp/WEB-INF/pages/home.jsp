@@ -14,7 +14,6 @@
 	<link href="resources/assets/css/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel='stylesheet' type='text/css'>
 	<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="resources/assets/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="resources/assets/css/custom.css" rel="stylesheet">
     <link href="resources/assets/css/accordionCss.css" rel="stylesheet">
     <link href="resources/assets/css/responsive.css" rel="stylesheet">
@@ -30,7 +29,34 @@
 					<a ng-click="toggleClick()"><img class="img-responsive" src="resources/assets/images/logo-drugstore.png" /></a>
 				</div>
 				
-				<div class="header-content"></div>
+				<div class="header-content">
+					<nav class="navbar navbar-default">
+  						<div class="container-fluid">
+	    					<div class="navbar-header">
+      							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        							<span class="sr-only">Toggle navigation</span>
+        							<span class="icon-bar"></span>
+        							<span class="icon-bar"></span>
+        							<span class="icon-bar"></span>
+      							</button>
+    						</div>
+
+	    					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      							<ul class="nav navbar-nav navbar-right">
+        							<li><a href="#" class="cart_style"><i class="fa fa-shopping-cart"></i> CART <span class="cart_count" data-reactid="59">0</span></a></a></li>
+        							<li class="dropdown">
+          								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          								<ul class="dropdown-menu">
+            								<li><a href="#">Settings</a></li>
+								            <li role="separator" class="divider"></li>
+								            <li><a href="#" ng-click="logOut()">Logout</a></li>
+          								</ul>
+        							</li>
+      							</ul>
+    						</div>
+  						</div>
+					</nav>		
+				</div>
 			</header>
 			
 		
@@ -79,6 +105,7 @@
 
 <!--*********** JavaScript Libraries ***************-->
     <script src="resources/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="resources/assets/js/bootstrap.min.js"></script>
     <script src="resources/assets/js/accordionScript.js" type="text/javascript"></script>
     <script src="resources/assets/js/angularjs/angular.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/angularjs/angular-ui-router.min.js" type="text/javascript"></script>

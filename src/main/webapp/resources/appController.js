@@ -18,6 +18,10 @@ drugApp.controller('MainController', ['$scope','$rootScope','$http','$state', fu
 	$scope.toggleClick = function() {
 		$scope.toggleVrbl = !$scope.toggleVrbl;
 	}
+	
+	$scope.logOut = function() {
+        window.location.href = './sessionLogout';
+    };
 }]);
 
 

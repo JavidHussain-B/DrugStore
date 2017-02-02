@@ -13,7 +13,6 @@
 <!--*********** CSS Styles ***************-->
 	<link href="resources/assets/css/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="resources/assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="resources/assets/css/login-style.css" rel="stylesheet">
     <link href="resources/assets/css/responsive.css" rel="stylesheet">
  <!--*********** CSS Styles ***************-->	
@@ -80,7 +79,7 @@ drugLoginApp.controller('LoginController', ['$scope','$http', function($scope,$h
                 window.scrollTo(0, 0);
                 alert('its gone');
             } else{
-            	alert('success');
+            	//alert('success');
             	window.location.href = './HOME';
             }
         });
